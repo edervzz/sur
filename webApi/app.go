@@ -20,7 +20,6 @@ func Run() {
 	router := mux.NewRouter()
 	router.HandleFunc("/short-url-open", createUrlHandler.Handler).Methods(http.MethodPost).Name("Short Url")
 	router.HandleFunc("/{id}", getUrlHandler.Handler).Methods(http.MethodGet).Name("Short Url")
-
 	// 3. open connection
 	fmt.Println("listening on: 8000")
 	if err := http.ListenAndServe(":8000", router); err != nil {
